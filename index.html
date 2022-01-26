@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Magic Eight Ball</title>
 </head>
 <body>
-    <div class="container">
-        <p id="response">Think of a question.</p>
-        <button onclick="getResponse()">Click Me!</button>
-    </div>
+    <main>
+        <section class="eightball">
+            <p id="response">Think of a question.</p>
+            <a id="button" onclick="getResponse()" href="#">Shake!</a>
+        </section>
+    </main>
     <script src="js/script.js"></script>
 </body>
 </html>
