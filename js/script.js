@@ -1,3 +1,10 @@
+
+let shakeButton = document.getElementById("shakeButton");
+let responseText = document.getElementById("responseText");
+
+shakeButton.addEventListener("click", shakeResponse);
+responseText.addEventListener("animationend", shakeResponse);
+
 async function getResponse() {
     // Get eightball responses array
     const requestURL = "../eight_ball_responses.json";
@@ -10,6 +17,9 @@ async function getResponse() {
     // The response that will be displayed
     let eightBallResponse = responses[randomNumber];
 
-    document.getElementById("response").innerHTML = eightBallResponse;
+    document.getElementById("responseText").innerHTML = eightBallResponse;
 }
 
+function shakeResponse() {
+    document.getElementById("responseText").classList.toggle("shake");
+}
