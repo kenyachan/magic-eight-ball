@@ -1,9 +1,9 @@
-function getResponse() {
-    // Eight Ball response array
-    const responses = ['It is certain', 'It is decidedly so',
-     'Reply hazy, try again', 'Cannot predict now', 
-     'Do not count on it', 'My sources say no', 
-     'Outlook not so good', 'Signs point to yes']
+async function getResponse() {
+    // Get eightball responses array
+    const requestURL = "../eight_ball_responses.json";
+    const request = new Request(requestURL);
+    const responseData = await fetch(request);
+    const responses = await responseData.json();
 
     // Random number from 0-7 corresponding to response array positions
     let randomNumber = Math.floor(Math.random() * 8);
