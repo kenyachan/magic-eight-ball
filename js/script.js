@@ -7,20 +7,22 @@ shakeButton.addEventListener("click", toggleFortuneTextShake);
 fortuneText.addEventListener("animationend", toggleFortuneTextShake);
 
 function toggleFortuneTextShake() {
-    document.getElementById("fortuneText").classList.toggle("shake");
+    fortuneText.classList.toggle("shake");
 }
 
-async function getFortune() {
-    // Get eightball fortune array
-    const requestURL = "../eight_ball_fortunes.json";
-    const request = new Request(requestURL);
-    const fortuneData = await fetch(request);
-    const fortunes = await fortuneData.json();
+const request = new Request("../eight_ball_fortunes.json");
+let fortunes;
 
+async function getFortunesArray() {
+    fortunes = await (await fetch(request)).json();
+}
+
+function getFortune() {
     // Random number from 0-7 corresponding to fortune array positions
     let randomNumber = Math.floor(Math.random() * 8);
-    // The fortune that will be displayed
-    let eightBallFortune = fortunes[randomNumber];
-
-    fortuneText.innerHTML = eightBallFortune;
+    
+    // Check if fortune array resource has been fetched
+    if (fortunes == undefined) { getFortunesArray(); }
+        
+    fortuneText.innerHTML = fortunes[randomNumber];
 }
