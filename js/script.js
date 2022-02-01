@@ -19,7 +19,8 @@ async function getFortunesArray() {
 
 function getFortune() {
     // Random number from 0-7 corresponding to fortune array positions
-    let randomNumber = Math.floor(Math.random() * 8);
+    let randomNumber = new MersenneTwister().random();
+    randomNumber = Math.floor(randomNumber * 8);
     
     // Check if fortune array resource has been fetched
     if (fortunes == undefined) { getFortunesArray(); }
