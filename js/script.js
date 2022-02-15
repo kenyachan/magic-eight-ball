@@ -1,29 +1,30 @@
-
-const shakeButton = document.getElementById("shakeButton");
 const fortuneText = document.getElementById("fortuneText");
 
 // add event listeners to elements for controlling the jitters
-shakeButton.addEventListener("click", toggleFortuneTextShake);
+//shakeButton.addEventListener("click", toggleFortuneTextShake);
 fortuneText.addEventListener("animationend", toggleFortuneTextShake);
+
+// load eightball
+const req = new Request("../eightball.json");
+let eightball;
+
+async function getEightBall() {
+    eightball = await (await fetch(req)).json();
+
+    // add shake function to the eightball object
+    eightball.shake = function() {
+        let randomNumber = new MersenneTwister().random();
+        randomNumber = Math.floor(randomNumber * 8);
+
+        fortuneText.innerHTML = eightball.fortunes[randomNumber];
+    };
+}
 
 function toggleFortuneTextShake() {
     fortuneText.classList.toggle("shake");
 }
 
-const request = new Request("../eight_ball_fortunes.json");
-let fortunes;
-
-async function getFortunesArray() {
-    fortunes = await (await fetch(request)).json();
-}
-
-function getFortune() {
-    // Random number from 0-7 corresponding to fortune array positions
-    let randomNumber = new MersenneTwister().random();
-    randomNumber = Math.floor(randomNumber * 8);
-    
-    // Check if fortune array resource has been fetched
-    if (fortunes == undefined) { getFortunesArray(); }
-        
-    fortuneText.innerHTML = fortunes[randomNumber];
+function shakeEightBall() {
+    toggleFortuneTextShake();
+    eightball.shake();
 }
