@@ -1,7 +1,12 @@
+document.addEventListener('keyup', (event) => {
+    if(event.code === "Space") {
+        document.getElementById("shakeButton").click();
+    }
+});
+
 const fortuneText = document.getElementById("fortuneText");
 
 // add event listeners to elements for controlling the jitters
-//shakeButton.addEventListener("click", toggleFortuneTextShake);
 fortuneText.addEventListener("animationend", toggleFortuneTextShake);
 
 // load eightball
