@@ -6,9 +6,6 @@ document.addEventListener('keyup', (event) => {
 
 const fortuneText = document.getElementById("fortuneText");
 
-// add event listeners to elements for controlling the jitters
-fortuneText.addEventListener("animationend", toggleFortuneTextShake);
-
 // load eightball
 const req = new Request("../eightball.json");
 let eightball;
@@ -25,11 +22,12 @@ async function getEightBall() {
     };
 }
 
-function toggleFortuneTextShake() {
-    fortuneText.classList.toggle("shake");
-}
-
 function shakeEightBall() {
-    toggleFortuneTextShake();
     eightball.shake();
+
+    // Toggles the shake animation
+    fortuneText.classList.remove("shake");
+    window.requestAnimationFrame(function() {
+        fortuneText.classList.add("shake");
+    });
 }
