@@ -11,6 +11,21 @@ body, html {
     padding: 0;
 }
 
+header {
+    text-align: center;
+}
+
+header span {
+    font-size: 4rem;
+    font-weight: bolder;
+    color: #0071e3;
+}
+
+header p {
+    color: grey;
+    font-style: italic;
+}
+
 .eightball {
     display: flex;
     flex-direction: column;
