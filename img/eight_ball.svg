@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 125.167 124.125" fill="#fff" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#A" x="2.083" y="2.083"/>
+    <symbol id="A" overflow="visible">
+        <g stroke="none" fill-rule="nonzero">
+            <!-- ball colour -->
+            <use xlink:href="#C" fill="#0071e3"/>
+            <!-- inner white circle -->
+            <path d="M29.167 60.417c0-17.312 13.938-31.25 31.25-31.25s31.25 13.938 31.25 31.25-13.937 31.25-31.25 31.25-31.25-13.937-31.25-31.25z"/> 
+            <!-- shadow -->
+            <path d="M91.121 8.421a60.19 60.19 0 0 1 16.213 41.167c0 33.367-27.05 60.417-60.417 60.417a60.13 60.13 0 0 1-30.552-8.3c11.021 11.761 26.663 19.133 44.05 19.133 33.367 0 60.417-27.05 60.417-60.417 0-22.146-11.937-41.479-29.713-52z" fill-opacity=".3" fill="#000"/>
+        </g>
+        <!-- number 8 (two circles) -->
+        <g fill="none" stroke-width="4.167">
+            <use xlink:href="#C"/>
+            <path d="M53.41 53.41a6.99 6.99 0 1 1 14.013 0 6.99 6.99 0 1 1-14.013 0z"/>
+            <path d="M51.35 69.484a9.05 9.05 0 1 1 18.133 0c0 5.023-4.044 9.067-9.067 9.067a9.05 9.05 0 0 1-9.067-9.067z"/>
+        </g>
+    </symbol>
+    <defs>
+        <path id="C" d="M0 60.417C0 26.946 26.946 0 60.417 0s60.417 26.946 60.417 60.417-26.946 60.417-60.417 60.417S0 93.888 0 60.417z"/>
+    </defs>
+</svg>
