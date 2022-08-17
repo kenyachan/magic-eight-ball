@@ -24,10 +24,15 @@ main {
 footer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: #1f2937;
     color: #e5e7eb;
     font-size: .8rem;
     padding: 1rem 4rem;
+}
+
+footer a .fa-github {
+    font-size: 1.5rem;
 }
 
 footer a {
