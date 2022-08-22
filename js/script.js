@@ -1,10 +1,12 @@
-document.addEventListener('keyup', (event) => {
+const button = document.querySelector("#shakeButton");
+const fortuneText = document.querySelector("#fortuneText");
+
+button.addEventListener('click', shake);
+document.addEventListener('keydown', (event) => {
     if(event.code === "Space") {
-        document.getElementById("shakeButton").click();
+        shake();
     }
 });
-
-const fortuneText = document.getElementById("fortuneText");
 
 // load eightball
 const req = new Request("../eightball.json");
@@ -12,22 +14,25 @@ let eightball;
 
 async function getEightBall() {
     eightball = await (await fetch(req)).json();
+}
 
-    // add shake function to the eightball object
-    eightball.shake = function() {
-        let randomNumber = new MersenneTwister().random();
-        randomNumber = Math.floor(randomNumber * 8);
+function shake() {
+    getFortune();
+    shakeEightBall();
+}
 
-        fortuneText.innerHTML = eightball.fortunes[randomNumber];
-    };
+function getFortune() {
+    let randomNumber = new MersenneTwister().random();
+    randomNumber = Math.floor(randomNumber * 8);
+
+    fortuneText.textContent = eightball.fortunes[randomNumber];
 }
 
 function shakeEightBall() {
-    eightball.shake();
-
     // Toggles the shake animation
     fortuneText.classList.remove("shake");
-    window.requestAnimationFrame(function() {
+    window.requestAnimationFrame(() => {
         fortuneText.classList.add("shake");
     });
 }
+
